@@ -1,0 +1,43 @@
+<form
+   class=""
+   method="post"
+   enctype="multipart/form-data"
+   autocomplete="false">
+   <div class="card text-left text-light bg-dark">
+      <div class="card-header">
+         <h4>Dentro do Sistema!</h4>
+      </div>
+      <div class="card-body text-center">
+         <h5 viewID="tempo">
+            Você gastou um total de: {tempo} para aprender e hackear do sistema,
+            agora tem privilegios adminstrativos, pode até escolher o que deseja
+            fazer.
+         </h5>
+         <br/>
+         <button
+            type="submit"
+            name="banco"
+            class="btn btn-primary btn-lg btn-block">
+            Baixar a lista de todas as senhas e contas das pessoas
+            que estão na sala?
+         </button>
+         <div viewID="alert" class="alert alert-danger d-none" role="alert">
+            O sistema acha que vc é um hacker, então bloqueou esta area,
+            entre em contato com o adminstrador se for engano.
+         </div>
+         <br/>
+         <h2>ou</h2>
+         <br/>
+         <button
+            viewID="buttao"
+            type="submit"
+            name="luz"
+            class="btn btn-primary btn-lg btn-block">
+            {onoff} a luz da sala de aula?
+         </button>
+         <div viewID="alert2" class="alert alert-danger d-none" role="alert">
+            O sistema de controle da sala está indisponivel no momento.
+         </div>
+      </div>
+   </div>
+</form>

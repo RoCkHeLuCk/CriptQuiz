@@ -1,0 +1,47 @@
+<form
+   class=""
+   method="post"
+   enctype="multipart/form-data"
+   autocomplete="false">
+   <div class="card text-left text-light bg-dark">
+      <div class="card-header">
+         <h4>Hackeando o Sistema!</h4>
+      </div>
+      <div class="card-body">
+         <h5>
+            Faça o Quiz para aprender como desencriptar o codigo.
+         </h5>
+         <br/>
+         <h4>Codigo Encriptado:</h4>
+         <h5 viewID="chave">
+         </h5>
+         <br/>
+         <h5>Chave:</h5>
+         <input
+            type="text"
+            name="senha"
+            class="form-control"
+            required=""
+            autocomplete="new-password"/>
+         <div viewID="alert" class="alert alert-danger d-none" role="alert">
+            A Senha está incorreta, você tem apenas mais {tentativa} tentativa(s).
+         </div>
+         <small
+            class="form-text text-muted">
+            <h5>
+               A chave esta dentro do texto Encriptado!
+               <br/>
+               Você deve localizar e desencriptar a chave.
+            </h5>
+         </small>
+         <br/>
+         <div class="text-center">
+            <button
+               type="submit"
+               class="btn btn-primary btn-lg btn-block">
+               Entrar
+            </button>
+         </div>
+      </div>
+   </div>
+</form>

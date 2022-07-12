@@ -1,0 +1,49 @@
+<form
+   class=""
+   method="post"
+   enctype="multipart/form-data"
+   autocomplete="off">
+   <div class="card text-left text-light bg-dark">
+      <div class="card-header">
+         <h4>Questão 2:</h4>
+      </div>
+      <div class="card-body">
+         <h5 viewID="pergunta">
+            Vamos continuar encriptando seu nome!
+            <br/>
+            Agora substitua as vogais do seu nome invertido "{nome}"
+            por números correspondente, sempre antecedido por zero,
+            para ter sempre dois digitos numericos.
+            <br/>
+            "a por 01", "e por 02", "i por 03", "o por 04", "u por 05".
+         </h5>
+         <br/>
+         <h5>Resposta:</h5>
+         <input
+            type="text"
+            name="resposta"
+            class="form-control"
+            required=""
+            autocomplete="off"/>
+         <div viewID="alert" class="alert alert-danger d-none" role="alert">
+            A resposta está incorreta, você tem apenas mais 999... tentativas.
+         </div>
+         <small
+            class="form-text text-muted">
+            <h5>
+               "oruas avlis ad onid" fica assim:
+               <br/>
+               "04r0501s 01vl03s 01d 04n03d"
+            </h5>
+         </small>
+         <br/>
+         <div class="text-center">
+            <button
+               type="submit"
+               class="btn btn-primary btn-lg btn-block">
+               Proximo
+            </button>
+         </div>
+      </div>
+   </div>
+</form>

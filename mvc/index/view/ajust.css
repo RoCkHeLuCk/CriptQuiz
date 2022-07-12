@@ -1,0 +1,131 @@
+﻿@charset "UTF-8";
+
+html
+{
+	position: relative;
+	min-height: 100%;
+}
+
+nav
+{
+	background: rgb(76,76,76);
+	background: -moz-linear-gradient(top,  rgb(76,76,76) 0%, rgb(71,71,71) 39%, rgb(17,17,17) 60%, rgb(19,19,19) 100%);
+	background: -webkit-linear-gradient(top,  rgb(76,76,76) 0%,rgb(71,71,71) 39%,rgb(17,17,17) 60%,rgb(19,19,19) 100%);
+	background: linear-gradient(to bottom,  rgb(76,76,76) 0%,rgb(71,71,71) 39%,rgb(17,17,17) 60%,rgb(19,19,19) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 );
+	color: rgb(255, 255, 255);
+
+	text-align : left;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+}
+
+body
+{
+	background: rgb(46,201,232);
+	background: -moz-linear-gradient(-45deg,  rgb(46,201,232) 0%, rgb(35,99,188) 53%, rgb(132,231,244) 100%);
+	background: -webkit-linear-gradient(-45deg,  rgb(46,201,232) 0%,rgb(35,99,188) 53%,rgb(132,231,244) 100%);
+	background: linear-gradient(135deg,  rgb(46,201,232) 0%,rgb(35,99,188) 53%,rgb(132,231,244) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ec9e8', endColorstr='#84e7f4',GradientType=1 );
+}
+
+footer
+{
+	background: rgb(206,220,231);
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(206,220,231,1) 0%, rgba(89,106,114,1) 100%);
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%);
+	background: radial-gradient(ellipse at center,  rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=1 );
+
+	position: absolute;
+	text-align : center;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+
+	color: rgb(255, 255, 255);
+}
+
+.container
+{
+	text-align : center;
+	width: auto;
+	padding: 0 15px;
+	margin-bottom: 30px;
+}
+
+.btn
+{
+	white-space: normal;
+}
+
+.mintable
+{
+	height: 300px;
+	overflow: auto;
+}
+
+.disabled
+{
+	pointer-events: none;
+}
+
+
+.blinks {
+    animation-duration: 500ms;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    -webkit-animation: blink 500ms infinite; /* Safari and Chrome */
+}
+@keyframes blink {
+    from {
+        background-color: DarkRed;
+    }
+    to {
+        background-color: Red;
+    }
+}
+@-webkit-keyframes blink {
+    from {
+        background-color: DarkRed;
+    }
+    to {
+        background-color: Red;
+    }
+}
+
+@media (min-width: 600px)
+{
+	.input-group
+	{
+		display: flex;
+		width: 100%;
+	}
+
+}
+@media (max-width: 600px)
+{
+	.input-group-prepend
+	{
+		display: block;
+		width: 100%;
+	}
+
+	.input-group-prepend > .input-group
+	{
+		display: block;
+		width: 100%;
+	}
+
+	.input-group > .form-control
+	{
+		display: block;
+		width: 100%;
+	}
+}

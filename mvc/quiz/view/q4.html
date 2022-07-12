@@ -1,0 +1,51 @@
+<form
+   class=""
+   method="post"
+   enctype="multipart/form-data"
+   autocomplete="off">
+   <div class="card text-left text-light bg-dark">
+      <div class="card-header">
+         <h4>Questão 5:</h4>
+      </div>
+      <div class="card-body">
+         <h5 viewID="pergunta">
+            Agora sim ninguem vai entender nada!
+            <br/>
+            "{nome}", :)
+            <br/>
+            Vamos acrescentar o digito verificador para quem for
+            desencriptar o codigo conferir se ele não foi corrompido.
+            <br/>
+            Para fazer isso vamos contar quantos digitos temos e
+            adicione o numero no final do texto separado por uma barra "/";
+         </h5>
+         <br/>
+         <h5>Resposta:</h5>
+         <input
+            type="text"
+            name="resposta"
+            class="form-control"
+            required=""
+            autocomplete="off"/>
+         <div viewID="alert" class="alert alert-danger d-none" role="alert">
+            A resposta está incorreta, você tem apenas mais 999... tentativas.
+         </div>
+         <small
+            class="form-text text-muted">
+            <h5>
+               "14r1511s$11vl13s$11d$14n13d" fica assim:
+               <br/>
+               "14r1511s$11vl13s$11d$14n13d/27"
+            </h5>
+         </small>
+         <br/>
+         <div class="text-center">
+            <button
+               type="submit"
+               class="btn btn-primary btn-lg btn-block">
+               Proximo
+            </button>
+         </div>
+      </div>
+   </div>
+</form>

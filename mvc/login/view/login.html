@@ -1,0 +1,73 @@
+<form
+   class=""
+   method="post"
+   enctype="multipart/form-data"
+   autocomplete="off">
+   <div class="card text-left text-light bg-dark">
+      <div class="card-header">
+         <h4>Registrando!</h4>
+      </div>
+      <div class="card-body">
+         <h5>Nome:</h5>
+         <input
+            type="text"
+            name="nome"
+            class="form-control"
+            placeholder="Exemplo: Dino da Silva Sauro"
+            required=""
+            minlength="10"
+            autocomplete="off"/>
+         <small
+            class="form-text text-muted">
+            Seu nome completo!
+         </small>
+         <br/>
+         <h5>Data de Nascimento:</h5>
+         <input
+            viewID="data"
+            type="date"
+            name="data"
+            class="form-control"
+            required=""
+            min="1900-01-01"
+            autocomplete="off"/>
+         <small
+            class="form-text text-muted">
+            Dia em que você nasceu!
+         </small>
+         <br/>
+         <h5>
+            SENHA = (DIA + MES + ANO + PC);
+         </h5>
+         <small
+            class="form-text text-muted">
+            <h5 viewID="dica">
+               A Senha é a soma "Dia+Mes+Ano" do seu
+               Nascimento + Numero do PC que vc está usando!
+               <br/>
+               Seu PC é o Numero: {pc}
+            </h5>
+         </small>
+         <h5>Senha:</h5>
+         <input
+            type="password"
+            name="senha"
+            class="form-control"
+            required=""
+            minlength="4"
+            maxlength="4"
+            autocomplete="new-password"/>
+         <div viewID="alert" class="alert alert-danger d-none" role="alert">
+            A Senha está incorreta, você tem apenas mais 999... tentativas.
+         </div>
+         <br/>
+         <div class="text-center">
+            <button
+               type="submit"
+               class="btn btn-primary btn-lg btn-block">
+               Entrar
+            </button>
+         </div>
+      </div>
+   </div>
+</form>

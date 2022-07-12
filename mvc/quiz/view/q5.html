@@ -1,0 +1,50 @@
+<form
+   class=""
+   method="post"
+   enctype="multipart/form-data"
+   autocomplete="off">
+   <div class="card text-left text-light bg-dark">
+      <div class="card-header">
+         <h4>Questão 6:</h4>
+      </div>
+      <div class="card-body">
+         <h5 viewID="pergunta">
+            Tem muitos metodos de encriptação, este foi um bem simples.
+            Hoje já existe até encriptação quantica que nos leva para
+            outro nivel.
+            <br/>
+            Agora vou te chamar de: "{nome}", :|
+            <br/>
+            Para desencriptar, o processo é o inverso, mas temos que saber
+            exatamente como é feito.
+            <br/>
+            Agora tente desencriptar este codigo "{teste}" :
+         </h5>
+         <br/>
+         <h5>Resposta:</h5>
+         <input
+            type="text"
+            name="resposta"
+            class="form-control"
+            required=""
+            autocomplete="off"/>
+         <div viewID="alert" class="alert alert-danger d-none" role="alert">
+            A resposta está incorreta, você tem apenas mais 999... tentativas.
+         </div>
+         <small
+            class="form-text text-muted">
+            <h5>
+               Opa, agora não posso ajudar!
+            </h5>
+         </small>
+         <br/>
+         <div class="text-center">
+            <button
+               type="submit"
+               class="btn btn-primary btn-lg btn-block">
+               Proximo
+            </button>
+         </div>
+      </div>
+   </div>
+</form>
