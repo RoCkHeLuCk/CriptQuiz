@@ -25,10 +25,10 @@ class Controller extends TController
       $this->view->setVariable('title', 'Decrypt Quiz');
       $clone = $this->view->css->cloneMe();
       $clone->attribute('href')
-         ->set('/quiz/resources/bootstrap/css/bootstrap.min.css');
+         ->set('./resources/bootstrap/css/bootstrap.min.css');
       $clone = $this->view->css->cloneMe();
       $clone->attribute('href')
-         ->set('/quiz/mvc/index/view/ajust.css');
+         ->set('./mvc/index/view/ajust.css');
 
       $this->main();
       $this->menu();
@@ -99,22 +99,22 @@ class Controller extends TController
          $clone = $this->view->menuitem->cloneMe();
          $clone->attribute('href')->set('?PG=Logout');
          $clone->insertOf('Sair');
-         $clone->menuimage->attribute('src')->set('/quiz/image/btn_exit.svg');
+         $clone->menuimage->attribute('src')->set('./image/btn_exit.svg');
 
          $clone = $this->view->menuitem->cloneMe();
          $clone->attribute('href')->set('?PG=Quiz&Q=0');
          $clone->insertOf('Quiz');
-         $clone->menuimage->attribute('src')->set('/quiz/image/btn_test.svg');
+         $clone->menuimage->attribute('src')->set('./image/btn_test.svg');
 
          $clone = $this->view->menuitem->cloneMe();
          $clone->attribute('href')->set('?PG=Test');
          $clone->insertOf('Hackear o Sistema');
-         $clone->menuimage->attribute('src')->set('/quiz/image/btn_secure.svg');
+         $clone->menuimage->attribute('src')->set('./image/btn_secure.svg');
       }else{
          $clone = $this->view->menuitem->cloneMe();
          $clone->attribute('href')->set('?PG=Login');
          $clone->insertOf('Entrar');
-         $clone->menuimage->attribute('src')->set('image/btn_login.svg');
+         $clone->menuimage->attribute('src')->set('./image/btn_login.svg');
       }
 
    }

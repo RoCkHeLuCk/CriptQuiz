@@ -61,7 +61,7 @@ class TRequestElement
     *   @param    callable      $validate
     */
    public function __construct(string $name, string $cookieKey = '',
-      int $ioBitwise, ?callable $validate = NULL)
+      int $ioBitwise = 0, ?callable $validate = NULL)
    {
       $this->name = $name;
       $this->cookieKey = empty($cookieKey)?$name:"$cookieKey[$name]";
@@ -216,7 +216,7 @@ class TRequest extends TBase
     *   @param    string   $key
     *   @return   string
     */
-   public function __get(string $key) : string
+   public function __get(string $key)
    {
       if (array_key_exists($key, $this->requestList))
       {
@@ -235,7 +235,7 @@ class TRequest extends TBase
     *   @param    string   $key
     *   @param    string   $value
     */
-   public function __set(string $key, string $value) : string
+   public function __set(string $key, string $value)
    {
       if (array_key_exists($key, $this->requestList))
       {

@@ -21,12 +21,12 @@ function validateCPF(string $cpf) : bool
 	{
 		for ($d = 0, $c = 0; $c < $t; $c++)
 		{
-			$d += $cpf{$c} * (($t + 1) - $c);
+			$d += substr($cpf,$c,1) * (($t + 1) - $c);
 		}
 
 		$d = ((10 * $d) % 11) % 10;
 
-		if ($cpf{$c} != $d)
+		if (substr($cpf,$c,1) != $d)
 		{
 			return false;
 		}
@@ -53,22 +53,22 @@ function validateCNPJ(string $cnpj) : bool
 
 	for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++)
 	{
-		$soma += $cnpj{$i} * $j;
+		$soma += substr($cnpj,$i,1) * $j;
 		$j = ($j == 2) ? 9 : $j - 1;
 	}
 	$resto = $soma % 11;
 
-	if ($cnpj{12} != ($resto < 2 ? 0 : 11 - $resto))
+	if (substr($cnpj,12,1) != ($resto < 2 ? 0 : 11 - $resto))
 		return false;
 
 	for ($i = 0, $j = 6, $soma = 0; $i < 13; $i++)
 	{
-		$soma += $cnpj{$i} * $j;
+		$soma += substr($cnpj,$i,1) * $j;
 		$j = ($j == 2) ? 9 : $j - 1;
 	}
 	$resto = $soma % 11;
 
-	return $cnpj{13} == ($resto < 2 ? 0 : 11 - $resto);
+	return substr($cnpj,13,1) == ($resto < 2 ? 0 : 11 - $resto);
 }
 
 /**

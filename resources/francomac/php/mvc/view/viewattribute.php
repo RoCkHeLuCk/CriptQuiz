@@ -39,7 +39,7 @@ class TViewAttribute
 
       if (!$this->XMLownerElement->hasAttribute($AttName))
       {
-         $this->XMLownerElement->setAttribute($AttName,NULL);
+         $this->XMLownerElement->setAttribute($AttName,'');
       }
    }
 
@@ -71,7 +71,7 @@ class TViewAttribute
     *   @method   set
     *   @param    string   $value
     */
-   public function set(string $value) : void
+   public function set(string $value)
    {
       $this->XMLownerElement->setAttribute($this->AttName,
          superTrim($value));
@@ -83,7 +83,7 @@ class TViewAttribute
     *   @method   get
     *   @return   string
     */
-   public function get() : string
+   public function get()
    {
       return $this->XMLownerElement->getAttribute($this->AttName);
    }
