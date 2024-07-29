@@ -110,6 +110,12 @@ class Controller extends TController
          $clone->attribute('href')->set('?PG=Test');
          $clone->insertOf('Hackear o Sistema');
          $clone->menuimage->attribute('src')->set('./image/btn_secure.svg');
+
+         $clone = $this->view->menuitem->cloneMe();
+         $clone->attribute('href')->set('?PG=Ranking');
+         $clone->insertOf('Progresso');
+         $clone->menuimage->attribute('src')->set('./image/btn_ranking.svg');
+
       }else{
          $clone = $this->view->menuitem->cloneMe();
          $clone->attribute('href')->set('?PG=Login');
