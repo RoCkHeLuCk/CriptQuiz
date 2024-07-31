@@ -218,4 +218,14 @@ function listFiles(string $path, string $mask, bool $subPath = true) : array
    return $result;
 }
 
+function DateToStr(?string $value, string $format = 'H:i:s')
+{
+   if (!$value)
+      return '';
+   if (is_numeric($value))
+      $value=gmdate('Y-m-d H:i:s', $value);
+   return (new \DateTime($value))->format($format);
+}
+
+
 ?>
