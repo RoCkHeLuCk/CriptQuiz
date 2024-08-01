@@ -25,33 +25,55 @@ class Controller extends TController
    {
       $this->view->loadFile(__DIR__.'/view/ranking.html');
       $users = parse_ini_file(__DIR__.'/../../users.ini', true);
-      $count = 0;
       foreach ($users as $key => &$value)
       {
          if(issets($value, 'start'))
          {
             $startTime = strtotime($value['start']);
-            $endTime = (issets($value,'end'))?strtotime($value['end']): strtotime(time());
-            $progressTime = $endTime - $startTime;
-            $totalTime = $endTime - $startTime;
             $value['start'] = DateToStr($startTime);
-            $value['end'] = DateToStr($endTime);
-            $value['progress'] = DateToStr($progressTime);
-            $value['total'] = DateToStr($totalTime);
-         }
 
-         $rowClone = $this->view->row->cloneMe();
-         $colClone = $rowClone->col->cloneMe();
-         $colClone->insertOf($count);
-         $colClone = $rowClone->col->cloneMe();
-         $colClone->insertOf($key);
-         foreach ($value as $value2)
-         {
-            $colClone = $rowClone->col->cloneMe();
-            $colClone->insertOf($value2);
+            if (issets($value, 'end'))
+            {
+               $endTime = strtotime($value['end']);
+               $totalTime = $endTime - $startTime;
+               $value['total'] = DateToStr($totalTime);
+               $value['end'] = DateToStr($endTime);
+            } else {
+               $value['total'] = '';
+               $value['end'] = '';
+            }
+         } else {
+            $value['start'] = '';
+            $value['total'] = '';
+            $value['end'] = '';
          }
+         $value['pc'] = $key;
+         $value['progress'] = ifset($value,'progress','Desconhecido');
+      }
+
+      usort(
+         $users,
+         function($a, $b)
+         {
+            if (empty($b['total']))
+               $retval = 0;
+            else
+               $retval = strtotime($a['total']) <=> strtotime($b['total']);
+            if ($retval == 0)
+            {
+               $retval = $a['name'] <=> $b['name'];
+            }
+            return $retval;
+         }
+      );
+      $count = 1;
+      foreach ($users as &$value)
+      {
+         $value['ranking'] = $count;
          $count++;
       }
+
+      $this->view->row->foreachBlocks($users);
       return $this->view;
    }
 }

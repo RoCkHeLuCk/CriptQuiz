@@ -18,6 +18,10 @@ class Controller extends TController
       $this->view->loadFile(__DIR__.'/view/lock.html');
       $PC = explode('.',$_SERVER['REMOTE_ADDR']);
       $PC = count($PC)==4?$PC[3]:'0';
+      $users = parse_ini_file(__DIR__ . '/../../users.ini', true);
+      $users[$PC]['progress'] = 'Foi preso!';
+      write_to_ini(__DIR__ . '/../../users.ini', $users);
+
       if ($PC <= 20)
       {
          $PC = 'Computador: '.$PC;

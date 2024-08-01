@@ -227,5 +227,23 @@ function DateToStr(?string $value, string $format = 'H:i:s')
    return (new \DateTime($value))->format($format);
 }
 
+// Function to write settings to a specific section in an INI file
+function write_to_ini(string $file, array $array)
+{
+   $content = '';
+   foreach ($array as $key => $value)
+   {
+      $content .= "[$key]\n";
+      foreach ($value as $key2 => $value2)
+      {
+         $content .= "$key2 = \"$value2\"\n";
+      }
+      $content .= "\n";
+   }
+
+   // Append content to file
+   return file_put_contents($file, $content) !== false;
+}
+
 
 ?>

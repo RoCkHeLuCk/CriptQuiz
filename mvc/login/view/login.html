@@ -16,10 +16,17 @@
             placeholder="Exemplo: Dino da Silva Sauro"
             required=""
             minlength="10"
-            autocomplete="off"/>
-         <small
-            class="form-text text-muted">
-            Seu nome completo!
+            autocomplete="off"
+            value="{name}"/>
+         <div
+            viewID="alertName"
+            class="alert alert-danger d-none"
+            role="alert"
+         >
+            O Nome está incorreta, você tem apenas mais 999... tentativas.
+         </div>
+         <small class="form-text text-muted">
+            Este nome será usado nos exercícios!
          </small>
          <br/>
          <h5>Data de Nascimento:</h5>
@@ -38,13 +45,15 @@
          <br/>
          <h5>
             SENHA = (DIA + MES + ANO + PC);
+            <br/>
+            Seu PC é o Numero: {pc};
          </h5>
          <small
             class="form-text text-muted">
             <h5 viewID="dica">
-               Seu PC é o Numero: {pc}
-               <br/>
                Ex: 11/08/2000 e seu pc é 10 então temos:
+               <br/>
+               Somamos todos os números!
                <br/>
                SENHA = 11 + 08 + 2000 + 10;
                <br/>

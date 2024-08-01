@@ -167,6 +167,9 @@ class Controller extends TController
       $this->view->pergunta->replaceStr('nome',$nome);
       $this->view->pergunta->replaceStr('pc',$_SESSION['pc']);
       $this->view->pergunta->replaceStr('teste',$teste);
+
+      if ($_SESSION['quiz'] == $Q)
+        $this->view->next->deleteMe();
       return $this->view;
    }
 
@@ -230,6 +233,9 @@ class Controller extends TController
       if ($value > $_SESSION['quiz'])
       {
          $_SESSION['quiz'] = $value;
+         $users = parse_ini_file(__DIR__ . '/../../users.ini', true);
+         $users[$_SESSION['pc']]['progress'] = 'Quiz '.$_SESSION['quiz'];
+         write_to_ini(__DIR__ . '/../../users.ini', $users);
       }
       header('Location: ./?PG=Quiz&Q='.$_SESSION['quiz']);
       exit;

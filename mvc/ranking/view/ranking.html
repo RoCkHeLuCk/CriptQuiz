@@ -4,24 +4,30 @@
          <h4>Progresso</h4>
       </div>
       <div class="card-body">
-         <table>
-            <caption>Progresso</caption>
+         <table class="table table-dark table-hover table-striped">
             <thead>
                <tr>
                   <th>Ranking</th>
                   <th>Nome</th>
+                  <th>PC</th>
                   <th>Inicio</th>
-                  <th>Termino</th>
                   <th>Progresso</th>
+                  <th>Termino</th>
                   <th>Total</th>
                </tr>
             </thead>
             <tbody>
-               <tr viewID="row">
-                  <th
-                     viewID="col"
-                     style="width: 150px;"
-                  ></th>
+               <tr
+                  viewID="row"
+                  viewBlock=""
+               >
+                  <th style="width: 80px; text-align: center;">{ranking}</th>
+                  <th style="width: 200px;">{name}</th>
+                  <th style="width: 80px;">{pc}</th>
+                  <th style="width: 100px;">{start}</th>
+                  <th style="width: 200px;">{progress}</th>
+                  <th style="width: 100px;">{end}</th>
+                  <th style="width: 100px;">{total}</th>
                </tr>
             </tbody>
          </table>
