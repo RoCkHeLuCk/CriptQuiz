@@ -26,6 +26,9 @@ class Controller extends TController
             return superTrim($value);
          }
       );
+
+      $users = parse_ini_file(__DIR__ . '/../../users.ini', true);
+      $_SESSION['quiz'] = ifset($users[$_SESSION['pc']],'quiz',0);
    }
 
    public function execute()
@@ -168,8 +171,9 @@ class Controller extends TController
       $this->view->pergunta->replaceStr('pc',$_SESSION['pc']);
       $this->view->pergunta->replaceStr('teste',$teste);
 
-      if ($_SESSION['quiz'] == $Q)
+      if (($_SESSION['quiz'] == $Q) AND ($this->view->hasElement('next')))
         $this->view->next->deleteMe();
+
       return $this->view;
    }
 
@@ -234,6 +238,7 @@ class Controller extends TController
       {
          $_SESSION['quiz'] = $value;
          $users = parse_ini_file(__DIR__ . '/../../users.ini', true);
+         $users[$_SESSION['pc']]['quiz'] = $_SESSION['quiz'];
          $users[$_SESSION['pc']]['progress'] = 'Quiz '.$_SESSION['quiz'];
          write_to_ini(__DIR__ . '/../../users.ini', $users);
       }

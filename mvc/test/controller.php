@@ -43,6 +43,13 @@ class Controller extends TController
          if($this->request->senha == $r)
          {
             $_SESSION['system'] = 'unlock';
+
+            $users = parse_ini_file(__DIR__ . '/../../users.ini', true);
+            $users[$_SESSION['pc']]['progress'] = 'Sistema Hackeado!';
+            if (!issets($users[$_SESSION['pc']],'end'))
+               $users[$_SESSION['pc']]['end'] = date("H:i:s");
+            write_to_ini(__DIR__ . '/../../users.ini', $users);
+
             header('Location: ./?PG=System');
          }else{
             $this->view->alert->attribute('class')->del('d-none');
@@ -51,6 +58,11 @@ class Controller extends TController
             if ($_SESSION['teste'] < 0)
             {
                $_SESSION['system'] = 'lock';
+
+               $users = parse_ini_file(__DIR__ . '/../../users.ini', true);
+               $users[$_SESSION['pc']]['progress'] = 'Foi Preso :)';
+               write_to_ini(__DIR__ . '/../../users.ini', $users);
+
                header('Location: ./?PG=Lock');
             }
          }

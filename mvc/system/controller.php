@@ -50,27 +50,23 @@ class Controller extends TController
          }
       }
 
-      if (isset($_SESSION['tempo'])
-      AND !isset($_SESSION['gasto']) )
-      {
-         $gasto = time() - $_SESSION['tempo'];
-         $_SESSION['gasto'] = date('i',$gasto).' min '.date('s',$gasto).' seg,';
-      }
-
-      $this->view->tempo->replaceStr('tempo',$_SESSION['gasto']);
       $this->view->buttao->replaceStr('onoff',$_SESSION['luz']?'Ligar':'Desligar');
       return $this->view;
    }
 
    private function arduino(bool $ligar) : bool
    {
-      $port = "COM5";
-      exec("MODE $port BAUD=9600 PARITY=n DATA=8 XON=on STOP=1");
-      $fp = fopen($port, 'w');
-      if ($fp)
-      {
-         fwrite($fp, $ligar?'l':'d');
-         fclose($fp);
+      error_reporting(E_ERROR | E_PARSE);
+      try {
+         $port = "COM5";
+         exec("MODE $port BAUD=9600 PARITY=n DATA=8 XON=on STOP=1");
+         $fp = fopen($port, 'w');
+         if ($fp) {
+            fwrite($fp, $ligar ? 'l' : 'd');
+            fclose($fp);
+         }
+      } catch (\Throwable $th) {
+         //throw $th;
       }
       return !$ligar;
    }
