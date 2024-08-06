@@ -38,15 +38,15 @@ class Controller extends TController
 
       if ($_POST)
       {
-         if(isset($_POST['banco']))
-         {
-            $this->view->alert->attribute('class')->del('d-none');
-         }
-
          if(isset($_POST['luz']))
          {
-            $this->view->alert2->attribute('class')->del('d-none');
-            $_SESSION['luz'] = $this->arduino( $_SESSION['luz'] );
+            $value = $this->arduino($_SESSION['luz']);
+            if ($value !== NULL)
+            {
+               $_SESSION['luz'] = $value;
+            } else {
+               $this->view->alert2->attribute('class')->del('d-none');
+            }
          }
       }
 
@@ -54,21 +54,21 @@ class Controller extends TController
       return $this->view;
    }
 
-   private function arduino(bool $ligar) : bool
+   private function arduino(bool $ligar) : ?float
    {
-      error_reporting(E_ERROR | E_PARSE);
-      try {
-         $port = "COM5";
-         exec("MODE $port BAUD=9600 PARITY=n DATA=8 XON=on STOP=1");
+      $port = "COM4";
+      $prompt = exec("MODE $port BAUD=9600 PARITY=n DATA=8 XON=on STOP=1");
+      if ($prompt == '')
+      {
          $fp = fopen($port, 'w');
-         if ($fp) {
+         if ($fp)
+         {
             fwrite($fp, $ligar ? 'l' : 'd');
             fclose($fp);
          }
-      } catch (\Throwable $th) {
-         //throw $th;
+         return !$ligar;
       }
-      return !$ligar;
+      return NULL;
    }
 
 }
