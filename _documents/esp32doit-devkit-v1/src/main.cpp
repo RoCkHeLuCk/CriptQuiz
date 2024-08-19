@@ -1,10 +1,10 @@
 #include "main.hpp"
-
+#define PIN_CONTROLLER GPIO_NUM_13
 void setup()
 {
    Serial.begin(9600);
-   pinMode(LED_BUILTIN, OUTPUT);
-   digitalWrite(LED_BUILTIN, LOW);
+   pinMode(PIN_CONTROLLER, OUTPUT);
+   digitalWrite(PIN_CONTROLLER, LOW);
 }
 
 char command = '\0';
@@ -16,8 +16,8 @@ void loop()
       command = Serial.read();
       switch (command)
       {
-         case 'd': digitalWrite(LED_BUILTIN, LOW); break;
-         case 'l': digitalWrite(LED_BUILTIN, HIGH); break;
+         case 'd': digitalWrite(PIN_CONTROLLER, HIGH); break;
+         case 'l': digitalWrite(PIN_CONTROLLER, LOW); break;
       }
    }
 }

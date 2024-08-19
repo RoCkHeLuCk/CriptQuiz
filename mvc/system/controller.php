@@ -56,7 +56,7 @@ class Controller extends TController
 
    private function arduino(bool $ligar) : ?float
    {
-      $port = "COM4";
+      $port = "COM3";
       $prompt = exec("MODE $port BAUD=9600 PARITY=n DATA=8 XON=on STOP=1");
       if ($prompt == '')
       {
